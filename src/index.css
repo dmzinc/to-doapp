@@ -77,16 +77,24 @@ h2 {
   padding: 6px;
   border-radius: 4px;
   cursor: pointer;
-  background-color: black;
+  background-color: red;
   color: white;
+  width: 50px;
+  height: 35px;
+  border: none;
 }
 .edit {
   float: right;
-  /* padding: 6px; */
+  padding: 6px;
   border-radius: 4px;
   cursor: pointer;
   color: white;
+  background-color: green;
   margin-right: 20px;
+  margin-left: 20px;
+  width: 50px;
+  height: 35px;
+  border: none;
 }
 
 #add-list {
