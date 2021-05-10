@@ -1,4 +1,3 @@
-
 const List = ({ list, onDelete }) => {
   return (
     <div id="all-list">

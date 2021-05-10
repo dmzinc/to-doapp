@@ -1,27 +1,45 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import Header from "./components/Header";
 import Lists from "./components/Lists";
 import AddList from "./components/AddList";
 
 function App() {
-  const [lists, setLists] = useState([
-    {
-      id: 1,
-      text: "Forbes",
-    },
-    {
-      id: 2,
-      text: "Ade",
-    },
-  ]);
+  const [lists, setLists] = useState([]);
+
+  useEffect(() => {
+    const getLists = async () => {
+      const listsFromServer = await fetchLists();
+      setLists(listsFromServer);
+    };
+    getLists();
+  }, []);
+  //Fetch list
+  const fetchLists = async () => {
+    const res = await fetch("http://localhost:5000/lists");
+
+    const data = await res.json();
+
+    return data;
+  };
   //Add List
-  const addList = (list) => {
-    const id = Math.floor(Math.random() * 10000) + 1;
-    const newList = { id, ...list };
-    setLists([...lists, newList]);
+  const addList = async (list) => {
+    const res = await fetch("http://localhost:5000/lists", {
+      method: "POST",
+      headers: {
+        "Content-type": "application/json",
+      },
+      body: JSON.stringify(list),
+    });
+
+    const data = await res.json();
+    setLists([...lists, data]);
   };
   //Delete List
-  const deleteList = (id) => {
+  const deleteList = async (id) => {
+    await fetch(`http://localhost:5000/lists/${id}`, {
+      method: "DELETE",
+    });
+
     setLists(lists.filter((list) => list.id !== id));
   };
   return (
