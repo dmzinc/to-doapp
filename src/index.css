@@ -70,7 +70,8 @@ h2 {
 }
 
 .add {
-  margin-left: 20px;
+  background-color: black;
+  border: none;
 }
 .delete {
   float: right;
