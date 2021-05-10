@@ -1,12 +1,15 @@
-import Button from "./Button";
 
-const List = ({ text }) => {
+const List = ({ list, onDelete }) => {
   return (
-    <li>
-      <span>{text}</span>
-      <Button value="edit" title="Edit" />
-      <Button value="delete" title="Delete" />
-    </li>
+    <div id="all-list">
+      <ul id="list">
+        <li>
+          <span>{list.text}</span>
+          <input type="submit" className="edit" value="Edit" />
+         <input type="submit" className="delete" value="Delete"  onClick={()=>onDelete(list.id )}/>
+        </li>
+      </ul>
+    </div>
   );
 };
 

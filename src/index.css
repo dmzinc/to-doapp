@@ -27,6 +27,7 @@ h2 {
   padding: 0 0 20px;
   overflow: hidden;
   border: 1px solid black;
+
 }
 
 #page-banner {
@@ -143,13 +144,11 @@ h2 {
   line-height: 52px;
 }
 
-#list:nth-child(1) {
-  border-left: 2px solid black;
-}
 #all-list li:hover {
   background-color: #d2d8d6;
   background-image: linear-gradient(315deg, #d2d8d6 0%, #dce8e0 74%);
 
   border-color: black;
-  color: white;
+  color: black;
+  cursor: pointer;
 }
